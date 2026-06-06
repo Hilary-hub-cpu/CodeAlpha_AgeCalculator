@@ -1,0 +1,265 @@
+/* remet a zero les marges et paddings par defaut du navigateur */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* style general de la page */
+body {
+    min-height: 100vh; /* occupe toute la hauteur de l ecran */
+    background:#7c7c83; /* fond noir */
+    display: flex; /* flexbox pour centrer */
+    align-items: center; /* centrage vertical */
+    justify-content: center; /* centrage horizontal */
+    font-family: Arial, Helvetica, sans-serif, ; /* police disponible sur tous les ordinateurs, pas besoin d internet */
+    padding: 2rem 1rem;
+}
+
+/* carte centrale */
+.card {
+    background: #16161a; /* fond gris tres sombre */
+    border: 1px solid #2a2a32; /* fine bordure */
+    border-radius: 24px; /* coins arrondis */
+    padding: 3rem 2.5rem; /* espace interieur */
+    width: 100%;
+    max-width: 480px; /* largeur maximum */
+    position: relative; /* pour les effets decoratifs */
+    overflow: hidden; /* cache ce qui depasse */
+}
+
+/* petit badge en haut */
+.badge {
+    display: inline-block;
+    background: rgba(139, 92, 246, 0.15); /* fond violet transparent */
+    color: #a78bfa; /* texte violet */
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 0.12em; /* espacement entre lettres */
+    text-transform: uppercase; /* tout en majuscules */
+    padding: 5px 12px;
+    border-radius: 100px; /* forme pilule */
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    margin-bottom: 1.2rem;
+}
+
+/* titre principal */
+h1 {
+    font-family: Georgia, serif; /* police elegante disponible partout */
+    font-size: 2rem;
+    font-weight: bold;
+    color: #f0eef8; /* blanc legerement violet */
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+/* sous titre */
+.subtitle {
+    font-size: 14px;
+    color: #666; /* gris discret */
+    margin-bottom: 2.2rem;
+}
+
+/* grille des 3 champs */
+.fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 colonnes egales */
+    gap: 12px; /* espace entre les colonnes */
+    margin-bottom: 1.8rem;
+}
+
+/* etiquette au dessus de chaque champ */
+.field label {
+    display: block; /* va a la ligne */
+    font-size: 11px;
+    font-weight: bold;
+    color: #555;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+/* champs de saisie */
+.field input {
+    width: 100%;
+    background: #0d0d0f; /* fond noir */
+    border: 1px solid #2a2a32;
+    border-radius: 12px;
+    color: #e8e6f0; /* texte blanc */
+    font-family: Georgia, serif;
+    font-size: 18px;
+    padding: 14px 12px;
+    text-align: center; /* chiffre centre */
+    outline: none; /* supprime le contour bleu du navigateur */
+    -moz-appearance: textfield; /* supprime les fleches sur Firefox */
+}
+
+/* supprime les fleches sur Chrome */
+.field input::-webkit-inner-spin-button,
+.field input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+/* texte fantome dans les champs vides */
+.field input::placeholder {
+    color: #333;
+}
+
+/* style quand on clique sur un champ */
+.field input:focus {
+    border-color: #7c3aed; /* bordure violette */
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12); /* lueur violette */
+}
+
+/* style quand le JS detecte une erreur */
+.field input.error {
+    border-color: #e24b4a; /* bordure rouge */
+    box-shadow: 0 0 0 3px rgba(226, 75, 74, 0.1);
+}
+
+/* zone du message d erreur */
+.error-msg {
+    font-size: 12px;
+    color: #e87878; /* rouge clair */
+    margin-bottom: 1rem;
+    min-height: 18px; /* garde l espace meme quand vide */
+    text-align: center;
+}
+
+/* bouton principal */
+.btn {
+    width: 100%;
+    background: #7c3aed; /* violet */
+    color: #fff;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer; /* main au survol */
+}
+
+/* bouton au survol */
+.btn:hover {
+    background: #5b21b6; /* violet plus fonce */
+}
+
+/* bouton au clic */
+.btn:active {
+    background: #4c1d95;
+}
+
+/* separateur Your age */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 2rem 0;
+    opacity: 0; /* invisible au depart */
+}
+
+/* devient visible quand le JS ajoute la classe show */
+.divider.show {
+    opacity: 1;
+}
+
+/* les deux lignes de chaque cote */
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #2a3132;
+}
+
+/* texte au milieu */
+.divider span {
+    font-size: 11px;
+    color: #444;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* grille des 3 cartes resultats */
+.results {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    opacity: 0; /* invisible au depart */
+}
+
+/* devient visible quand le JS ajoute la classe show */
+.results.show {
+    opacity: 1;
+}
+
+/* chaque carte resultat */
+.result-card {
+    background: #a08aa16f;
+    border: 1px solid #2a3132;
+    border-radius: 16px;
+    padding: 1.2rem 0.8rem;
+    text-align: center;
+}
+
+/* grand chiffre dans la carte */
+.result-card .num {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+    margin-bottom: 6px;
+}
+
+/* couleur violette pour YEARS */
+.result-card:nth-child(1) .num {
+    color: #5935c5;
+}
+
+/* couleur verte pour MONTHS */
+.result-card:nth-child(2) .num {
+    color: #6dc7b9;
+}
+
+/* couleur rose pour DAYS */
+.result-card:nth-child(3) .num {
+    color: #c6287f;
+}
+
+/* etiquette sous le chiffre */
+.result-card .lbl {
+    font-size: 11px;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* texte Born on en bas */
+.born-on {
+    text-align: center;
+    font-size: 13px;
+    color: #444;
+    margin-top: 1.4rem;
+    opacity: 0; /* invisible au depart */
+}
+
+/* devient visible quand le JS ajoute show */
+.born-on.show {
+    opacity: 1;
+}
+
+/* la date en violet */
+.born-on span {
+    color: #46ed3a;
+}
+
+/* pied de page */
+footer {
+    text-align: center;
+    margin-top: 2.5rem;
+    font-size: 11px;
+    color: #333;
+    letter-spacing: 0.05em;
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- permet d'afficher les caracteres speciaux -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- adapte la page a la taille de l'ecran -->
+
+    <title>Age Calculator</title>
+    <!-- titre dans l'onglet du navigateur -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- lien vers le fichier CSS qui est dans le meme dossier -->
+
+</head>
+
+<body>
+
+    <div class="card">
+    <!-- boite principale qui contient tout -->
+
+        <div class="badge">Age Calculator</div>
+        <!-- petit badge en haut -->
+
+        <h1>How old are you?</h1>
+        <!-- titre principal -->
+
+        <p class="subtitle">Enter your date of birth to find out.</p>
+        <!-- phrase explicative -->
+
+        <div class="fields">
+        <!-- conteneur des 3 champs cote a cote -->
+
+            <div class="field">
+            <!-- champ JOUR -->
+                <label>Day</label>
+                <input type="number" id="day" placeholder="DD" min="1" max="31">
+                <!-- id="day" permet au JavaScript de recuperer cette valeur -->
+            </div>
+
+            <div class="field">
+            <!-- champ MOIS -->
+                <label>Month</label>
+                <input type="number" id="month" placeholder="MM" min="1" max="12">
+                <!-- id="month" permet au JavaScript de recuperer cette valeur -->
+            </div>
+
+            <div class="field">
+            <!-- champ ANNEE -->
+                <label>Year</label>
+                <input type="number" id="year" placeholder="YYYY" min="1900" max="2025">
+                <!-- id="year" permet au JavaScript de recuperer cette valeur -->
+            </div>
+
+        </div>
+        <!-- fin des 3 champs -->
+
+        <p id="errMsg" class="error-msg"></p>
+        <!-- vide au depart, le JS ecrira les messages d erreur ici -->
+
+        <button class="btn" onclick="calculate()">Calculate my age</button>
+        <!-- au clic, appelle la fonction calculate() dans script.js -->
+
+        <div class="divider" id="divider">
+        <!-- separateur cache au depart, visible apres le calcul -->
+            <span>Your age</span>
+        </div>
+
+        <div class="results" id="results">
+        <!-- zone des resultats cachee au depart -->
+
+            <div class="result-card">
+            <!-- carte ANNEES -->
+                <div class="num" id="resYears">0</div>
+                <!-- le JS remplacera 0 par le vrai chiffre -->
+                <div class="lbl">Years</div>
+            </div>
+
+            <div class="result-card">
+            <!-- carte MOIS -->
+                <div class="num" id="resMonths">0</div>
+                <div class="lbl">Months</div>
+            </div>
+
+            <div class="result-card">
+            <!-- carte JOURS -->
+                <div class="num" id="resDays">0</div>
+                <div class="lbl">Days</div>
+            </div>
+
+        </div>
+        <!-- fin des resultats -->
+
+        <p id="bornOn" class="born-on"></p>
+        <!-- le JS ecrira ici ex : Born on June 6, 2000 -->
+
+        <footer>CodeAlpha Web Development Internship</footer>
+
+    </div>
+    <!-- fin de la carte principale -->
+
+    <script src="script.js"></script>
+    <!-- lien vers le fichier JS, toujours en bas avant la fermeture du body -->
+
+</body>
+</html>
